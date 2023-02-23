@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="./tailwind.css" />
+    <title>Invertory App with Js & Tailwind</title>
+  </head>
+  <body>
+    <div class="bg-slate-800 min-h-screen">
+      <!-- app bar -->
+      <div
+        class="h-12 flex items-center justify-center gap-x-4 bg-slate-700 mb-6"
+      >
+        <h1 class="text-xl font-bold text-state-300">
+          Inventory App using tailwind & Js
+        </h1>
+        <span
+          class="flex items-center justify-center w-7 h-7 rounded-full bg-state-500 text-slate-300 border-2 border-state-200 font-bold"
+          >7</span
+        >
+      </div>
+      <!-- app content -->
+      <div class="container max-w-screen-sm mx-auto">
+        <!-- category form -->
+        <section>
+          <div class="hidden mb-6" id="category-wrapper">
+            <h2 class="text-xl text-slate-300 font-bold mb-2">
+              Add new category
+            </h2>
+            <form class="bg-slate-700 p-4 rounded-xl flex flex-col gap-y-4">
+              <div class="">
+                <label for="category-title" class="block mb-1 text-slate-400"
+                  >title</label
+                >
+                <input
+                  type="text"
+                  name="category-title"
+                  id="category-title"
+                  class="bg-transparent rounded-xl border-slate-500 text-slate-400"
+                />
+              </div>
+              <div class="">
+                <label
+                  for="category-description"
+                  class="block mb-1 text-slate-400"
+                  >description</label
+                >
+                <textarea
+                  type="text"
+                  name="category-description"
+                  id="category-description"
+                  class="bg-transparent rounded-xl border-slate-500 text-slate-400 w-full"
+                ></textarea>
+              </div>
+              <div class="flex items-center justify-between gap-x-4">
+                <button
+                  id="cancel-category"
+                  class="flex-1 border border-slate-400 text-slate-300 rounded-xl py-2"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="flex-1 bg-slate-500 text-slate-200 rounded-xl py-2"
+                  id="add-new-category"
+                >
+                  Add new category
+                </button>
+              </div>
+            </form>
+          </div>
+          <button
+            id="toggle-add-category"
+            class="text-slate-600 text-xl mb-2 font-medium hover:text-slate-300"
+          >
+            Add new category?
+          </button>
+        </section>
+        <!-- product form -->
+        <div class="product-form mb-6">
+          <h2 class="text-xl text-slate-300 font-bold mb-2">Add new product</h2>
+          <form class="bg-slate-700 p-4 rounded-xl flex flex-col gap-y-4">
+            <div class="">
+              <label for="product-title" class="block mb-1 text-slate-400"
+                >title</label
+              >
+              <input
+                type="text"
+                name="product-title"
+                id="product-title"
+                class="bg-transparent rounded-xl border-slate-500 text-slate-400"
+              />
+            </div>
+            <div class="">
+              <label for="product-quantity" class="block mb-1 text-slate-400"
+                >quantity</label
+              >
+              <input
+                type="number"
+                name="product-quantity"
+                id="product-quantity"
+                class="bg-transparent rounded-xl border-slate-500 text-slate-400"
+              />
+            </div>
+            <div class="">
+              <label for="product-category" class="block mb-1 text-slate-400"
+                >category</label
+              >
+              <select
+                name="product-category"
+                id="product-category"
+                class="bg-transparent text-slate-400 rounded-xl w-full"
+              ></select>
+            </div>
+            <div class="flex items-center justify-between gap-x-4">
+              <button
+                class="flex-1 bg-slate-500 text-slate-200 rounded-xl py-2"
+                id="add-new-product"
+              >
+                Add new product
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- edit product form -->
+        <div class="edit-product-form mb-6 hidden">
+          <h2 class="text-xl text-slate-300 font-bold mb-2">Edit product</h2>
+          <form class="bg-slate-700 p-4 rounded-xl flex flex-col gap-y-4">
+            <div class="">
+              <label
+                for="edited-product-title"
+                class="block mb-1 text-slate-400"
+                >title</label
+              >
+              <input
+                type="text"
+                name="edited-product-title"
+                id="edited-product-title"
+                class="bg-transparent rounded-xl border-slate-500 text-slate-400"
+              />
+            </div>
+            <div class="mb-2">
+              <label
+                for="edited-product-quantity"
+                class="block mb-1 text-slate-400"
+                >quantity</label
+              >
+              <input
+                type="number"
+                name="edited-product-quantity"
+                id="edited-product-quantity"
+                class="bg-transparent rounded-xl border-slate-500 text-slate-400"
+              />
+            </div>
+            <div class="">
+              <label for="edit-product-category" class="block mb-1 text-slate-400"
+                >category</label
+              >
+              <select
+                name="edit-product-category"
+                id="edit-product-category"
+                class="bg-transparent text-slate-400 rounded-xl w-full"
+              ></select>
+            </div>
+            <div class="flex items-center justify-between gap-x-4">
+              <button
+                id="cancel-edit-product"
+                class="flex-1 border border-slate-400 text-slate-300 rounded-xl py-2"
+              >
+                Cancel
+              </button>
+              <button
+                class="flex-1 bg-slate-500 text-slate-200 rounded-xl py-2"
+                id="confirm-edit-product"
+              >
+                Confirm edit
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- product list -->
+        <h2 class="text-xl text-slate-300 font-bold mb-2">Product list</h2>
+        <div class="flex item-center justify-between mb-6">
+          <label for="search-input" class="text-slate-400 text-xl"
+            >Search</label
+          >
+          <input
+            type="text"
+            name="search-input"
+            id="search-input"
+            class="bg-transparent rounded-xl border border-slate-500 text-slate-400"
+          />
+        </div>
+        <div class="flex item-center justify-between mb-6">
+          <label for="sort-products" class="text-slate-400 text-xl">Sort</label>
+          <select
+            name="sort-products"
+            id="sort-products"
+            class="bg-transparent text-slate-400 rounded-xl"
+          >
+            <option class="bg-slate-500 text-slate-300" selected value="newest">
+              Newest
+            </option>
+            <option class="bg-slate-500 text-slate-300" value="oldest">
+              Oldest
+            </option>
+          </select>
+        </div>
+        <div id="products-list"></div>
+        <div class="h-2"></div>
+      </div>
+    </div>
+  </body>
+  <script src="/src/js/App.js" type="module"></script>
+</html>
