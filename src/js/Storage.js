@@ -1,40 +1,4 @@
-import ProductView from "./ProductView.js";
 
-const products = [
-  {
-    id: 1,
-    title: "React.js",
-    category: "frontend",
-    createdAt: "2023-01-30T11:58:11.205Z",
-  },
-  {
-    id: 2,
-    title: "Node.js",
-    category: "backend",
-    createdAt: "2023-01-30T11:59:24.772Z",
-  },
-  {
-    id: 3,
-    title: "Vue.js",
-    category: "frontend",
-    createdAt: "2023-01-30T11:59:39.659Z",
-  },
-];
-
-const categories = [
-  {
-    id: 1,
-    title: "frontend",
-    description: "frontend of applications",
-    createdAt: "2023-01-30T11:55:57.376Z",
-  },
-  {
-    id: 2,
-    title: "backend",
-    description: "backend of applications",
-    createdAt: "2023-01-30T11:56:33.033Z",
-  },
-];
 
 export default class Storage {
   static getAllCategories() {
